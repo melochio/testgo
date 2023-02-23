@@ -6,9 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <form action="/form" method="post">
-            <label for="">Name: </label> <input type="text" name="name">
-            <input type="submit" value="submit">
-        </form>
+        {{if .Status}}
+            {{range .Info}}
+                <label for="">Name: {{.Name}}</label>
+                <label for="">Age: {{.Age}}</label><br>
+            {{end}}
+        {{else}}
+            <h2>input</h2>
+            <form action="/form" method="post">
+                <label for="">Name1: </label> <input type="text" name="name1"><br>
+                <label for="">Age1: </label> <input type="number" name="age1"><br>
+                <label for="">Name2: </label> <input type="text" name="name2"><br>
+                <label for="">Age2: </label> <input type="number" name="age2">
+                <input type="submit" value="submit">
+            </form>
+        {{end}}
     </body>
 </html>
